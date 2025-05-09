@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love You Mumma</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe0f0, #e6f7ff, #fff9e6, #f3e6ff);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .bg-decoration {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .scatter {
+      position: absolute;
+      width: 80px;
+      opacity: 0.8;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    .love-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 30px;
+      font-size: 4em;
+      color: #c71585;
+      text-shadow: 2px 2px 6px yellow, -2px -2px 6px #ff99cc;
+      animation: popText 2s infinite;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes popText {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHeart 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -15px; left: 0; }
+    .heart::after { left: -15px; top: 0; }
+
+    @keyframes floatHeart {
+      0% { bottom: 0; transform: translateX(0) rotate(45deg); opacity: 0.7; }
+      100% { bottom: 100%; transform: translateX(100px) rotate(45deg); opacity: 0; }
+    }
+
+    .light {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #FFD700;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 2px #fff;
+      animation: floatLight 12s linear infinite;
+    }
+
+    @keyframes floatLight {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 100; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Decorative Images -->
+  <div class="bg-decoration">
+    <!-- More scattered icons for rich background -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3917/3917690.png" class="scatter" style="top:10%; left:5%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="scatter" style="top:20%; left:70%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534068.png" class="scatter" style="top:60%; left:40%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3917/3917690.png" class="scatter" style="top:80%; left:10%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="scatter" style="top:40%; left:85%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534068.png" class="scatter" style="top:70%; left:60%;">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3917/3917690.png" class="scatter" style="top:15%; left:10%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="scatter" style="top:25%; left:80%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534068.png" class="scatter" style="top:50%; left:60%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3917/3917690.png" class="scatter" style="top:75%; left:40%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="scatter" style="top:90%; left:25%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534068.png" class="scatter" style="top:60%; left:55%;">
+  </div>
+
+  <!-- Main Message -->
+  <div class="love-message">
+    LOVE YOU MUMMA!
+  </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 200; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = (Math.random() * 15) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- Floating Lights -->
+  <script>
+    for (let i = 0; i < 2000; i++) {
+      let light = document.createElement('div');
+      light.className = 'light';
+      light.style.left = Math.random() * 100 + 'vw';
+      light.style.animationDelay = Math.random() * 15 + 's';
+      document.body.appendChild(light);
+    }
+  </script>
+
+  <!-- Audio File -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="audio/merimaa.mp3" type="audio/mp3">
+  </audio>;
+
+  <!-- Autoplay Fix Script -->
+  <script>
+    document.addEventListener('click', () => {
+      const audio = document.getElementById('bgMusic');
+      audio.play().catch(e => console.log("Autoplay blocked:", e));
+    }, { once: true });
+  </script>
+
+</body>
+</html>

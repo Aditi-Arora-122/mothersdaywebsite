@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mother's Day Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    
+    /* Common styles for all pages */
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .background {
+      background: linear-gradient(to right, #f8c8d8, #d9f3f4, #b7e4f9);
+      background-size: cover;
+      height: 100vh;
+      text-align: center;
+      position: relative;
+    }
+    
+    h1 {
+      font-size: 3em;
+      color: #e17f99;
+      margin-top: 20%;
+      font-weight: bold;
+    }
+    
+    .button {
+      padding: 20px 40px;
+      background-color: #ff79c6;
+      color: white;
+      font-size: 1.5em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    .song-button {
+      margin: 10px;
+      padding: 10px;
+      background-color: #e17f99;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      font-size: 1.2em;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .song-button img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .photo-frame {
+      position: relative;
+      display: inline-block;
+      margin: 20px;
+    }
+    
+    .photo-frame img {
+      width: 300px;
+      height: 250px;
+      object-fit: cover;
+      border: 15px solid white;
+      border-image: url('https://i.imgur.com/JQz9Q0t.png') 30 round; /* Photo booth style border */
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame img:hover {
+      transform: scale(1.05);
+    }
+    
+    .nav-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 15px 30px;
+      background-color: #ff79c6;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    
+    .message-section p {
+      font-size: 1.5em;
+      color: #6c757d;
+      margin: 20px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    
+    .final-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #f8c8d8, #d9f3f4, #b7e4f9);
+    }
+    
+    .final-message {
+      font-size: 3em;
+      color: #e17f99;
+      margin-bottom: 30px;
+    }
+    
+    /* Blinking pastel background animation */
+    .blinking-bg {
+      animation: blink 8s infinite;
+      background-size: 200% 200%;
+    }
+    
+    @keyframes blink {
+      0% {
+        background: linear-gradient(45deg, #f8c8d8, #d9f3f4);
+      }
+      25% {
+        background: linear-gradient(45deg, #d9f3f4, #b7e4f9);
+      }
+      50% {
+        background: linear-gradient(45deg, #b7e4f9, #f8c8d8);
+      }
+      75% {
+        background: linear-gradient(45deg, #f8c8d8, #d9f3f4);
+      }
+      100% {
+        background: linear-gradient(45deg, #d9f3f4, #b7e4f9);
+      }
+    }
+    
+    /* Hidden audio player for page 4 */
+    #auto-song {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1: Welcome Page -->
+  <div id="page1" class="background">
+    <h1>Happiest Mother's Day, Mummaa <3❤️!</h1>
+    <button class="button" onclick="showPage('page2')">Click to Start</button>
+  </div>
+  
+  <!-- Page 2: Songs Page -->
+  <div id="page2" class="page blinking-bg">
+    <h2>Your Favourite Songs🌸🩷</h2>
+    <div>
+      <button class="song-button" onclick="playAudio('song1')">
+        <img src="C:\Users\Aditi\Downloads\tumbandhu.jpg" alt="Tum Hi Ho Bandhu Cover" />
+        Tum Hi Ho Bandhu
+      </button>
+      <button class="song-button" onclick="playAudio('song2')">
+        <img src="C:\Users\Aditi\Downloads\Mera-Yaar-From-Bhaag-Milkha-Bhaag.jpg" alt="Mera Yaar Cover" />
+        Mera Yaar
+      </button>
+      <button class="song-button" onclick="playAudio('song3')">
+        <img src="C:\Users\Aditi\Downloads\the_dirty_picture1.jpg" alt="Ishq Sufiana Cover" />
+        Ishq Sufiyana
+      </button>
+      <button class="song-button" onclick="playAudio('song4')">
+        <img src="C:\Users\Aditi\Downloads\haantuhain.jpg" alt="Haan Tu Hai Cover" />
+        Haan Tu Hai
+      </button>
+      <button class="song-button" onclick="playAudio('song5')">
+        <img src="C:\Users\Aditi\Downloads\gg.jpg" alt="Gallan Goodiyan Cover" />
+        Gallan Goodiyan
+      </button>
+      <button class="song-button" onclick="playAudio('song6')">
+        <img src="C:\Users\Aditi\Downloads\bb.jpg" alt="Bagad Bam Cover" />
+        Bagad Bam
+      </button>
+      <button class="song-button" onclick="playAudio('song7')">
+        <img src="C:\Users\Aditi\Downloads\ishqhai.jpg" alt="Ishq Hai Cover" />
+        Ishq Hai
+      </button>
+      <button class="song-button" onclick="playAudio('song8')">
+        <img src="C:\Users\Aditi\Downloads\gasp.jpg" alt="Gulabi Aankhein Cover" />
+        Gulabi Aankhein
+      </button>
+    </div>
+    <div id="audio-player"></div>
+    <button class="nav-button" onclick="showPage('page3')">Next: Photo Album</button>
+  </div>
+  
+  <!-- Page 3: Photo Album Page -->
+  <div id="page3" class="page blinking-bg">
+    <h2>Photo Album📸</h2>
+    <div id="photo-container">
+      <div class="photo-frame">
+        <img src="C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-09 at 20.07.40_aae5838b.jpg" alt="ME AND YOU" />
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      <button class="button" onclick="showNextPhoto()">Next Photo</button>
+    </div>
+    <button class="nav-button" onclick="showPage('page4')">Next: Special Message</button>
+  </div>
+  
+  <!-- Page 4: Message Page -->
+  <div id="page4" class="page blinking-bg">
+    <h2>A Heartfelt Message</h2>
+    <!-- Hidden audio player that will autoplay -->
+    <audio id="auto-song" controls autoplay loop>
+      <source src="audio/maa_meri_maa.mp3" type="audio/mp3">
+    </audio>
+    <div class="message-section">
+      <p>HAPPIEST MOTHER'S DAY TO THE MOST AMAZING AND STRONGEST MOM!It has been a boon to live with an amazing human being like you as a daughter.I will always adore you,your kindness,your sacrifices,and your unconditional love.You are the prettiest and the most precious person in our lives.We are blessed to have you with us as our family.THE BEST WOMAN,BEST WORKER,BEST HUMAN,BEST ADVISOR,BEST COOK.BEST HOST,BEST DAUGHTER,BEST WIFE,BEST MOM,BEST SISTER-YOU HAVE IT ALL.I look up to you every single day and get more inspired by your humbleness,acceptance and punctuality.I LOVE YOUUUU❤️❤️❤️❤️   ~ADITI</p>
+    </div>
+    <button class="nav-button" onclick="window.location.href='end.html'">Next: Final Page</button>
+  </div>
+
+  <script>
+    // Array of all photos
+    const photos = [
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-09 at 20.07.40_aae5838b.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.39.08_f689a7f7.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.39.10_983d1186.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.39.09_50b31fe8.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.39.09_3b1e6bcb.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.39.10_2d605928.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.41.14_37f43eb1.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.38.08_4c500728.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.38.07_d9b09e2b.jpg",
+"C:\\Users\\Aditi\\Desktop\\website\\photos\\WhatsApp Image 2025-05-08 at 23.38.06_06977b10.jpg"
+ ];
+    
+    let currentPhotoIndex = 0;
+    
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page, .background').forEach(page => {
+        page.style.display = 'none';
+      });
+      
+      // Show the requested page
+      document.getElementById(pageId).style.display = 'block';
+      
+      // Reset photo index when going to photo page
+      if (pageId === 'page3') {
+        currentPhotoIndex = 0;
+        updatePhotoDisplay();
+      }
+      
+      // Play automatic song when page 4 is shown
+      if (pageId === 'page4') {
+        document.getElementById('auto-song').play();
+      }
+    }
+    
+    function showNextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      updatePhotoDisplay();
+    }
+    
+    function updatePhotoDisplay() {
+      const container = document.getElementById('photo-container');
+      container.innerHTML = `
+        <div class="photo-frame">
+          <img src="${photos[currentPhotoIndex]}" alt="Photo ${currentPhotoIndex + 1}" />
+        </div>
+      `;
+    }
+    
+    function playAudio(song) {
+      var audioPlayer = document.getElementById('audio-player');
+      
+      // Song 1: Tum Hi Ho Bandhu
+      if (song === "song1") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/tum_hi_ho_bandhu.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 2: Mera Yaar
+      else if (song === "song2") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/merayaar.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 3: Ishq Sufiyana
+      else if (song === "song3") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/Ishq Sufiyana.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 4: Haan Tu Hain
+      else if (song === "song4") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/haan.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 5: Gallan Goodiyan
+      else if (song === "song5") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/Gallan Goodiyaan.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 6: Bagad Bam
+      else if (song === "song6") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/Babam Bam-1-Downringtone.com.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 7: Ishq Hai
+      else if (song === "song7") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/ishq_hai.mp3" type="audio/mp3"></audio>`;
+      }
+      // Song 8: Gulaabi Aankhein
+      else if (song === "song8") {
+        audioPlayer.innerHTML = `<audio controls autoplay><source src="audio/gulabiaankhien.mp3" type="audio/mp3"></audio>`;
+      }
+    }
+    
+    // Initialize by showing only the first page
+    window.onload = function() {
+      document.getElementById('page1').style.display = 'block';
+    };
+  </script>
+</body>
+</html>
